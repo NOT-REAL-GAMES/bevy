@@ -32,9 +32,9 @@ use tracing::error;
 #[reflect(Component, Default, Debug)]
 pub struct TextNodeFlags {
     /// If set then a new measure function for the text node will be created.
-    needs_measure_fn: bool,
+    pub needs_measure_fn: bool,
     /// If set then the text will be recomputed.
-    needs_recompute: bool,
+    pub needs_recompute: bool,
 }
 
 impl Default for TextNodeFlags {
