@@ -88,6 +88,7 @@ shader_format_glsl = [
   "bevy_pbr?/shader_format_glsl",
 ]
 shader_format_spirv = ["bevy_render/shader_format_spirv"]
+shader_format_wesl = ["bevy_render/shader_format_wesl"]
 
 serialize = [
   "bevy_a11y?/serialize",
@@ -279,6 +280,9 @@ custom_cursor = ["bevy_winit/custom_cursor"]
 # Experimental support for nodes that are ignored for UI layouting
 ghost_nodes = ["bevy_ui/ghost_nodes"]
 
+# Use the configurable global error handler as the default error handler.
+configurable_error_handler = ["bevy_ecs/configurable_error_handler"]
+
 # Allows access to the `std` crate. Enabling this feature will prevent compilation
 # on `no_std` targets, but provides access to certain additional features on
 # supported platforms.
@@ -331,7 +335,21 @@ libm = [
 
 # Uses `async-executor` as a task execution backend.
 # This backend is incompatible with `no_std` targets.
-async_executor = ["std", "bevy_tasks/async_executor", "bevy_ecs/async_executor"]
+async_executor = [
+  "std",
+  "bevy_tasks/async_executor",
+  "bevy_ecs/async_executor",
+  "bevy_transform/async_executor",
+]
+
+# Enables use of browser APIs.
+# Note this is currently only applicable on `wasm32` architectures.
+web = [
+  "bevy_app/web",
+  "bevy_platform_support/web",
+  "bevy_reflect/web",
+  "bevy_tasks/web",
+]
 
 [dependencies]
 # bevy (no_std)
