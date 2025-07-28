@@ -108,14 +108,6 @@ pub struct World {
     pub(crate) command_queue: RawCommandQueue,
 }
 
-impl Copy for World {}
-
-impl Clone for World {
-    fn clone(&self) -> World {
-        *self
-    }
-}
-
 impl Default for World {
     fn default() -> Self {
         let mut world = Self {
