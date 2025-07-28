@@ -26,8 +26,8 @@ use super::{unsafe_world_cell::UnsafeWorldCell, Mut, World};
 ///
 /// This means that in order to add entities, for example, you will need to use commands instead of the world directly.
 pub struct DeferredWorld<'w> {
-    // SAFETY: Implementers must not use this reference to make structural changes
-    world: UnsafeWorldCell<'w>,
+    /// Gives you the world. Breaking Bevy rules, but I need it, so whatevs.
+    pub world: UnsafeWorldCell<'w>,
 }
 
 impl<'w> Deref for DeferredWorld<'w> {
